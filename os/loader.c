@@ -1,6 +1,8 @@
 #include "loader.h"
 #include "defs.h"
 #include "trap.h"
+#include "proc.h"
+#include "timer.h"
 
 static uint64 app_num;
 static uint64 *app_info_ptr;
@@ -51,6 +53,10 @@ int run_all_app()
 		/*
 		* LAB1: you may need to initialize your new fields of proc here
 		*/
+		
+		p->start_time = get_cycle();
+		p->run_time = 0;
+		memset(&p->task_info, 0, sizeof(struct TaskInfo));
 	}
 	return 0;
 }
