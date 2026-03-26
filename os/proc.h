@@ -1,7 +1,9 @@
 #ifndef PROC_H
 #define PROC_H
 
+#include "riscv.h"
 #include "types.h"
+#include "vm.h"
 
 #define NPROC (16)
 
@@ -56,6 +58,12 @@ struct proc {
 	uint64 kstack; // Virtual address of kernel stack
 	struct trapframe *trapframe; // data page for trampoline.S
 	struct context context; // swtch() here to run process
+
+	//Proj2
+	pagetable_t pagetable;
+    uint64 max_page;
+
+
 	/*
 	* LAB1: you may need to add some new fields here
 	*/
