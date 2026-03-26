@@ -33,6 +33,9 @@ void proc_init(void)
 		/*
 		* LAB1: you may need to initialize your new fields of proc here
 		*/
+		memset(&p->task_info, 0, sizeof(struct TaskInfo));
+		p->start_time = 0;
+		p->run_time = 0;
 	}
 	idle.kstack = (uint64)boot_stack_top;
 	idle.pid = 0;
